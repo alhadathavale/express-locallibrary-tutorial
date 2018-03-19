@@ -14,10 +14,10 @@ var helmet = require('helmet');
 var app = express();
 
 app.use(helmet());
-
+	
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://alhad:alhad@ds012578.mlab.com:12578/local_library_aa';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://alhad:alhad@ds012578.mlab.com:12578/local_library_aa';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
